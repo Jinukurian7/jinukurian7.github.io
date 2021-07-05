@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        title pug learning 
+        meta(name='Description' content='This is a meta description with lorem ipsum dolor simet')
+        meta(name='keywords' content='')
+        link(rel='canonical' href='')
+        // Social Media Tags
+        meta(property='og:locale' content='en_US')
+        meta(property='og:type' content='website')
+        meta(property='og:title' content='HTML Boilerplate | White Rabbit Group')
+        meta(name='author' content='White Rabbit Group')
+        meta(property='og:url' content='index.html')
+        meta(property='og:image' name='image' content='images/meta.jpg')
+        meta(property='og:image:secure_url' content='images/meta.jpg')
+        meta(property='og:image:type' content='image/jpeg')
+        meta(property='og:image:width' content='300')
+        meta(property='og:image:height' content='300')
+        meta(property='og:site_name' content='HTML Boilerplate')
+        meta(property='og:description' content='This is a meta description with lorem ipsum dolor simet')
+        meta(name='twitter:card' content='summary')
+        link(rel="stylesheet" href="css/style.min.css")
+    body
+        include includes/header
+        #main-wrapper
+            section.hero-section
+                figure.hero
+                img.hero__img(src='images/banner.png' alt='Homepage Hero')
+            
+            section.text-section
+                .container
+                    h2.text-center This is a text section
+                    .row
+                        .grid-md-6
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repudiandae magnam sed nesciunt suscipit labore sequi sapiente consectetur aliquid. Ex minus accusamus officia veniam modi neque reiciendis doloribus dolorum voluptatem.
+                        .grid-md-6
+                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repudiandae magnam sed nesciunt suscipit labore sequi sapiente consectetur aliquid. Ex minus accusamus officia veniam modi neque reiciendis doloribus dolorum voluptatem.

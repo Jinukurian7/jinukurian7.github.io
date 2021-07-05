@@ -1,0 +1,12 @@
+// vendors
+@use "sass:math";
+@import "vendors/grid/grid.scss";
+
+// main styles
+@import "base";
+@import "fonts";
+@import "header";
+@import "footer"; 
+@import "layout"; 
+@import "pages";
+@import "components";

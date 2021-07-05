@@ -1,0 +1,128 @@
+// https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
+@mixin bp($range) {
+    $mobile: 600px;
+    $tablet: 900px;
+    $laptop: 1200px;
+    $desktop: 1800px;
+  
+    @if $range == mobile-only {
+        @media (max-width: #{$mobile - 1}) { 
+          @content; 
+        }
+    } 
+    @else if $range == mobile-up {
+        @media (min-width: $mobile) { 
+          @content; 
+        }
+    }
+    @else if $range == tablet-up {
+        @media (min-width: $tablet) { 
+          @content; 
+        }
+    } 
+    @else if $range == tablet-only {
+        @media (min-width: #{$tablet - 1}) { 
+          @content; 
+        }
+    } 
+    @else if $range == laptop-up {
+        @media (min-width: $laptop) { 
+          @content; 
+        }
+    } 
+    @else if $range == laptop-only {
+        @media (min-width: #{$laptop - 1}) { 
+          @content; 
+        }
+    } 
+    @else if $range == desktop-up {
+        @media (min-width: $desktop) { 
+          @content; 
+        }
+    }
+    @else if $range == desktop-up {
+        @media (min-width: #{$desktop - 1}) { 
+          @content; 
+        }
+    }
+}
+
+// usage
+
+// @include bp(laptop) {
+
+// }
+
+@mixin bp-custom-min($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin bp-custom-max($width) {
+    @media screen and (max-width: $width - 1) {
+        @content;
+    }
+}
+
+@mixin bp-bw($from, $to) {
+    @media screen and (min-width: $from) and (max-width: $to - 1) {
+        @content;
+    }
+}
+
+// px to Rem 
+
+@function calculateRem($size) {
+    // $remSize: $size / 16px;
+    $remSize: math.div($size, 16px);
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    // font-size: $size;
+    font-size: calculateRem($size);
+}
+
+// letter spacing 
+
+@mixin letter-spacing($spacing) {
+    letter-spacing: ($spacing / 1000) * 1em;
+}
+
+// color background gradients
+
+// linear
+@mixin linear-gradient($direction, $color-stops...) {
+    @if is-direction($direction) == false {
+        $color-stops: $direction, $color-stops;
+        $direction: 180deg;
+    }
+    
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(
+        legacy-direction($direction),
+        $color-stops
+    );
+    background: linear-gradient($direction, $color-stops);
+}
+      
+// radial
+@mixin radial-gradient($position, $color-stops...) {
+    @if is-direction($position) == false {
+        $color-stops: $position, $color-stops;
+        $position: circle at center;
+    }
+    
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-radial-gradient(
+        legacy-direction($position),
+        $color-stops
+    );
+    background: radial-gradient($position, $color-stops);
+}
+
+// border radius:  pass multiple values as arguments
+@mixin border-radius($pixel...) {
+    border-radius: $pixel;
+}

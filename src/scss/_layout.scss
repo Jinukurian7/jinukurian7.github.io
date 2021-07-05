@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#main {
+    background: $color-light;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+

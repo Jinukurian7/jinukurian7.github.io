@@ -1,0 +1,14 @@
+header.page-head.page-head--masthead
+  .page-head-wrapper
+    .container-fluid
+      nav.navbar
+        a.navbar-brand(href='/')
+          img(src='images/logo.png' alt='Logo')
+        - const navClasses = ["nav-link", "nav__item_link"]
+        ul.navbar-nav
+          li.nav__item
+            a(class=navClasses href='/') home
+          li.nav__item
+            a(class=navClasses href='/') About
+          li.nav__item
+            a(class=navClasses href='/') Contact

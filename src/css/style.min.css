@@ -1120,6 +1120,14 @@ h6 {
   color: #1e1f28;
 }
 
+footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+footer p {
+  margin-bottom: 0;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -1339,6 +1347,68 @@ blockquote {
   margin-bottom: 40px;
 }
 
+.interests-list {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+}
+.interests-list li {
+  margin: 7px 5px;
+  width: 74px;
+  height: 74px;
+  display: inline-block;
+  border: 1px solid #d7dbde;
+  position: relative;
+  border-radius: 3px;
+}
+.interests-list i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  line-height: 74px;
+  cursor: pointer;
+  color: #000;
+}
+.interests-list span {
+  color: #fff;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1;
+  display: inline-block;
+  background-color: #717171;
+  padding: 5px 8px;
+  white-space: nowrap;
+  position: absolute;
+  top: 100%;
+  margin-top: 10px;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 3px;
+  transition: all 0.15s ease-in;
+  -webkit-transform: translate3d(0, -15px, 0);
+          transform: translate3d(0, -15px, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+.interests-list li:hover span {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.35s ease-out;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
 /* vendors */
 .btn {
   padding: 15px 26px;
@@ -1464,14 +1534,6 @@ blockquote {
   margin-bottom: 25px;
   position: relative;
 }
-@media (min-width: 1200px) {
-  .timeline-box:nth-child(odd) {
-    padding-right: 50px;
-  }
-  .timeline-box:nth-child(even) {
-    padding-left: 50px;
-  }
-}
 .timeline-box-inner {
   padding: 30px 5% 20px 5%;
   position: relative;
@@ -1479,6 +1541,32 @@ blockquote {
   border-style: solid;
   background-color: #fff;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.timeline-box-inner:after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #646464;
+  border-radius: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: -55px;
+}
+@media (min-width: 1200px) {
+  .timeline-box:nth-child(odd) {
+    padding-right: 50px;
+    margin-top: 25px;
+  }
+  .timeline-box:nth-child(even) {
+    padding-left: 50px;
+    margin-top: 75px;
+  }
+  .timeline-box:nth-child(even) .timeline-box-inner:after {
+    right: auto;
+    left: -55px;
+  }
 }
 .timeline-box .date {
   font-size: 1rem;

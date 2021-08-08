@@ -22,15 +22,7 @@
         @include font-size(16px);
         line-height: 1.5;
         margin-bottom: 25px;
-        position: relative;
-        @include bp(laptop-up) {
-            &:nth-child(odd) {
-                padding-right: 50px;
-            }
-            &:nth-child(even) {
-                padding-left: 50px;
-            }
-        }
+        position: relative; 
         &-inner {
             padding: 30px 5% 20px 5%;
             position: relative;
@@ -38,6 +30,33 @@
             border-style: solid;
             background-color: #fff;
             box-shadow: 0 1px 6px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 24%);
+            &:after {
+                content: '';
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                background: #646464;
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                right: -55px;
+            }
+        }
+        @include bp(laptop-up) {
+            &:nth-child(odd) {
+                padding-right: 50px;
+                margin-top: 25px;
+            }
+            &:nth-child(even) {
+                padding-left: 50px;
+                margin-top: 75px;
+                .timeline-box-inner {
+                    &:after {
+                        right: auto;
+                        left: -55px;
+                    }
+                }
+            }
         }
         .date {
             @include font-size(16px);

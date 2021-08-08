@@ -9,6 +9,7 @@
             this.preloader();
             this.loadAnim();
             this.skillProgress();
+            this.timeline();
         },
         settings: {
             windowWidth: $(window).width(),
@@ -122,15 +123,27 @@
         },
 
         skillProgress: () => {
-            gsap.to(".bar-fill", { 
+            gsap.to(".bar-fill", 1.5, { 
                 width: function(index, target) {
                     return target.dataset.value
                 }, 
                 stagger: 0.25,
-                ease: Power4.easeOut,
+                ease: "power3.out",
                 scrollTrigger: {
                     trigger: ".skill-box"
                 }
+            });
+        },
+
+        timeline: () => {
+            // gsap.to('.timeline-box')
+            gsap.utils.toArray(".timeline-box").forEach(function(section) {
+                gsap.from(section, 1.5, {
+                    ease: "power3.out",
+                    opacity:0,
+                    y: 100,
+                    scrollTrigger: section
+                });
             });
         }
     };

@@ -4,10 +4,11 @@
     text-align: center;
     background: transparent;
     color: $color-dark;
-    border-radius: 50px;
+    border-radius: 5px;
     letter-spacing: 2px;
+    display: inline-block;
     border: 1px solid $color-dark;
-    text-transform: none;
+    text-transform: uppercase;
     z-index: 1;
     overflow: hidden;
     font-family: $font-family-btn;

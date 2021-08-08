@@ -11,6 +11,7 @@ const streamqueue = require("streamqueue");
 const uglify = require("gulp-uglify");
 const babel = require('gulp-babel');
 const pug = require('gulp-pug');
+const realFavicon = require('gulp-real-favicon');
 const del = require('del');
 const browserSync = require("browser-sync").create();
 
@@ -26,9 +27,13 @@ const paths = {
         dest: 'src/js/',
     },
     html: {
-        src: 'src/templates/*.pug',
+        src: 'src/templates/**/*.pug',
         dest: 'src/',
-    }
+    },
+    image: {
+        src: 'src/images/',
+        dest: 'src/images/icons/',
+    },
 };
 
 const sassOpts = {
@@ -70,7 +75,9 @@ gulp.task('scripts', (done) => {
   // Copy vendor files
     return streamqueue({ objectMode: true },
         gulp.src('src/lib/vendors/jquery.min.js'),
-        gulp.src('src/lib/vendors/modernizr.js')
+        gulp.src('src/lib/vendors/modernizr.js'),
+        gulp.src('src/lib/vendors/gsap.min.js'),
+        gulp.src('src/lib/vendors/ScrollTrigger.min.js')
         )
         .pipe(plumber({
             errorHandler: notify.onError("Error: <%= error.message %>")
@@ -92,6 +99,9 @@ gulp.task('pug', () => {
     return gulp.src(paths.html.src)
     .pipe(pug({
         pretty: true
+    }))
+    .on('error', notify.onError(function(error){
+        return "Message to the notifier: " + error.message;
     }))
     .pipe(gulp.dest(paths.html.dest));
 });
@@ -164,5 +174,79 @@ gulp.task('build', (done) => {
         .on('end', () => {
             console.log("PHP FILES COPIED TO BUILD");
         });
+        gulp.src("src/files/*")
+        .pipe(gulp.dest(prefix+("files/")))
+        .on('end', () => {
+            console.log("FILES COPIED TO BUILD");
+        });
     })    
 })
+
+
+// favicon
+
+var FAVICON_DATA_FILE = 'favicon.json';
+
+const project_folder = "dist";  //require("path").basename(__dirname)
+
+gulp.task('favicon', (done) => { // setting create favicons
+  realFavicon.generateFavicon({
+    masterPicture: paths.image.src + '/favicon.png',
+    dest: paths.image.dest,
+    iconsPath: 'images/icons/',
+    design: {
+      ios: {
+        pictureAspect: 'backgroundAndMargin',
+        backgroundColor: '#ffffff',
+        margin: '14%',
+        assets: {
+          ios6AndPriorIcons: false,
+          ios7AndLaterIcons: false,
+          precomposedIcons: false,
+          declareOnlyDefaultIcon: true
+        }
+      },
+      desktopBrowser: {
+        design: 'raw'
+      },
+      windows: {
+        pictureAspect: 'whiteSilhouette',
+        backgroundColor: '#2f675c',
+        onConflict: 'override',
+        assets: {
+          windows80Ie10Tile: false,
+          windows10Ie11EdgeTiles: {
+            small: false,
+            medium: true,
+            big: false,
+            rectangle: false
+          }
+        }
+      },
+      androidChrome: {
+        pictureAspect: 'noChange',
+        themeColor: '#ffffff',
+        manifest: {
+          display: 'standalone',
+          orientation: 'notSet',
+          onConflict: 'override',
+          declared: true
+        },
+        assets: {
+          legacyIcon: false,
+          lowResolutionIcons: false
+        }
+      }
+    },
+    settings: {
+      scalingAlgorithm: 'Mitchell',
+      errorOnImageTooSmall: false,
+      readmeFile: false,
+      htmlCodeFile: false,
+      usePathAsIs: false
+    },
+    markupFile: FAVICON_DATA_FILE
+  }, function () {
+    done();
+  });
+});

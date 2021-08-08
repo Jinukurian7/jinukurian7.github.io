@@ -1,0 +1,109 @@
+.timeline {
+    position: relative;
+    &:before {
+        content: '';
+        width: 4px;
+        opacity: 0.2;
+        margin-left: -2px;
+        position: absolute;
+        left: 50%;
+        top: 0;
+        height: 100%;
+        background-color: $color-dark;
+    }
+    &-inner {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-box {
+        width: 50%;
+        color: #757575;
+        @include font-size(16px);
+        line-height: 1.5;
+        margin-bottom: 25px;
+        position: relative;
+        @include bp(laptop-up) {
+            &:nth-child(odd) {
+                padding-right: 50px;
+            }
+            &:nth-child(even) {
+                padding-left: 50px;
+            }
+        }
+        &-inner {
+            padding: 30px 5% 20px 5%;
+            position: relative;
+            border-width: 5px 0 0 0;
+            border-style: solid;
+            background-color: #fff;
+            box-shadow: 0 1px 6px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 24%);
+        }
+        .date {
+            @include font-size(16px);
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        h3 {
+            color: #414141;
+            @include font-size(22px);
+            font-weight: 400;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: $nunito;
+        }
+        h4 {
+            color: #878787;
+            @include font-size(13px);
+            font-weight: 400;
+            line-height: 1.1;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+            font-family: $nunito;
+        }
+    }
+    .dot {
+        top: 80px;
+        width: 8px;
+        height: 8px;
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+    }
+    
+}
+
+.section-education {
+    text-align: left;
+    .date {
+        color: #fff;
+        @include font-size(14px);
+        font-weight: 700;
+        line-height: 1;
+        display: inline-block;
+        position: relative;
+        padding: 5px 8px;
+        border-radius: 3px;
+        background-color: $color-dark;
+        &:before {
+            content: '';
+            width: 0;
+            height: 0;
+            top: 100%;
+            left: 5px;
+            display: block;
+            position: absolute;
+            border-style: solid;
+            border-width: 0 0 8px 8px;
+            border-color: transparent;
+            border-left-color: $color-dark;
+        }
+    }
+    h3,h4 {
+        text-align: left;
+    }
+}

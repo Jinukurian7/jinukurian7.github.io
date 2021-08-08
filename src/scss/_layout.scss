@@ -4,7 +4,6 @@
 }
 
 #main {
-    background: $color-light;
     overflow-x: hidden;
 }
 
@@ -12,3 +11,14 @@ img {
     max-width: 100%;
 }
 
+body {
+    background-color: $color-light;
+    &--dark-theme {
+        background-color: $color-dark;
+    }
+}
+
+.container-fluid {
+    padding-left: $container-gutter;
+    padding-right: $container-gutter;
+}

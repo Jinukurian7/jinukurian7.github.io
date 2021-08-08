@@ -1,11 +1,9 @@
 .page-head {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    @include bp(laptop-up) {
-        top: 44px;
-    }
+    z-index: 99;
     nav {
         display: flex;
         align-items: flex-start;
@@ -19,19 +17,35 @@
         @include bp(laptop-up) {
             padding-left: 0;
             img {
-                animation: menuAnim ease-in-out 0.5s forwards;
+                animation: menuAnim map-get($easings, ease-in) 0.5s forwards;
             }
         }
     }
     img {
-        max-width: 164px;
+        width: 100%;
+        max-width: 75px;
         height: auto;
-        margin-top: 20px;
-        @include bp(tablet-up) {
-            max-width: 218px;
-        }
-        @include bp(desktop-up) {
-            max-width: 293px;
+        mix-blend-mode: difference;
+        z-index: 99;
+    }
+}
+
+.page-head-wrapper {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        top: 0;
+        left: 0;
+        transition: transform map-get($easings, ease-in-out) 0.25s;
+        transform: translateY(-100%);
+        box-shadow: 0 1px 6px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 20%);
+        .fixed & {
+            transform: translateY(0);
         }
     }
 }
@@ -43,8 +57,8 @@
     width: auto;
     height: auto;
     background: transparent;
-    padding-top: 25px;
     list-style: none;
+    padding-top: 15px;
     a {
         color: #fff;
         font-weight: bold;
@@ -52,11 +66,14 @@
         text-decoration: none;
         text-transform: uppercase;
         margin-bottom: 15px;
-        @include font-size(18px);
+        @include font-size(16px);
         display: block;
-        transition: color ease-in 0.25s;
+        transition: color map-get($easings, ease-in-out) 0.25s;
         &:hover, &:focus {
             color: $color-red;
+        }
+        .fixed & {
+            color: $color-dark;
         }
     }
 }

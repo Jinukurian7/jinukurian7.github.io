@@ -97,3 +97,60 @@
     height:1px;
     overflow:hidden;
 }
+
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #20202a;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-cover {
+        position: fixed;
+        background: lighten(#20202b, 0.9);
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    &-content {
+        margin-bottom: 15px;
+        text-align: center;
+        > * {
+            visibility:hidden;
+        }
+    }
+    h4 {
+        @include font-size(17px);
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 10px;
+    }
+    &-load {
+        margin-bottom: 10px;
+        width: 200px;
+    }
+    .progressbar-text {
+        position: relative;
+        @include font-size(14px);
+        font-weight: 400;
+        color: #cacace;
+        height: 300px;
+        line-height: 350px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        padding: 0;
+        margin: 0;
+        transform: translate(-50%,-50%);
+        color: #555;
+    }
+    .progressbar {
+        stroke-dasharray: 100px, 100px;
+    }
+}

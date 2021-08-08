@@ -1,17 +1,308 @@
-// @font-face {
-//     font-family: 'Open Sans';
-//     src: url('#{$font_path}/OpenSans-Regular.woff.woff2') format('woff2'),
-//         url('#{$font_path}/OpenSans-Regular.woff.woff') format('woff');
-//     font-weight: 500;
-//     font-display: swap;
-//     font-style: normal;
-// }
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('#{$font-path}/PlayfairDisplay-Black.woff2') format('woff2'),
+      url('#{$font-path}/PlayfairDisplay-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
 
-// @font-face {
-//     font-family: 'Roboto';
-//     src: url('#{$font_path}/Roboto-Regular.woff2') format('woff2'),
-//         url('#{$font_path}/Roboto-Regular.woff') format('woff');
-//     font-weight: 500;
-//     font-display: swap;
-//     font-style: normal;
-// }
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('#{$font-path}/PlayfairDisplay-Bold.woff2') format('woff2'),
+      url('#{$font-path}/PlayfairDisplay-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('#{$font-path}/PlayfairDisplay-Regular.woff2') format('woff2'),
+      url('#{$font-path}/PlayfairDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('#{$font-path}/NunitoSans-ExtraLight.woff2') format('woff2'),
+      url('#{$font-path}/NunitoSans-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('#{$font-path}/NunitoSans-Light.woff2') format('woff2'),
+      url('#{$font-path}/NunitoSans-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('#{$font-path}/NunitoSans-Bold.woff2') format('woff2'),
+      url('#{$font-path}/NunitoSans-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('#{$font-path}/NunitoSans-Regular.woff2') format('woff2'),
+      url('#{$font-path}/NunitoSans-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('#{$font-path}/NunitoSans-SemiBold.woff2') format('woff2'),
+      url('#{$font-path}/NunitoSans-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+
+$icomoon-font-family: "gnu-icons" !default;
+$icomoon-font-path: "../fonts" !default;
+
+$gnu-icon-football: "\e900";
+$gnu-icon-art: "\e806";
+$gnu-icon-coffee: "\e818";
+$gnu-icon-fitness: "\e844";
+$gnu-icon-movie: "\e862";
+$gnu-icon-pin: "\e877";
+$gnu-icon-badminton: "\e892";
+$gnu-icon-travelling: "\e89c";
+$gnu-icon-twitter: "\f099";
+$gnu-icon-facebook: "\f09a";
+$gnu-icon-github: "\f09b";
+$gnu-icon-linkedin: "\f0e1";
+$gnu-icon-quote-left: "\f10d";
+$gnu-icon-stack-overflow: "\f16c";
+$gnu-icon-codepen: "\eae8";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?jh1wa5') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?jh1wa5') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?jh1wa5##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="gnu-icon-"], [class*=" gnu-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gnu-icon-football {
+  &:before {
+    content: $gnu-icon-football; 
+  }
+}
+.gnu-icon-art {
+  &:before {
+    content: $gnu-icon-art; 
+  }
+}
+.gnu-icon-coffee {
+  &:before {
+    content: $gnu-icon-coffee; 
+  }
+}
+.gnu-icon-fitness {
+  &:before {
+    content: $gnu-icon-fitness; 
+  }
+}
+.gnu-icon-movie {
+  &:before {
+    content: $gnu-icon-movie; 
+  }
+}
+.gnu-icon-pin {
+  &:before {
+    content: $gnu-icon-pin; 
+  }
+}
+.gnu-icon-badminton {
+  &:before {
+    content: $gnu-icon-badminton; 
+  }
+}
+.gnu-icon-travelling {
+  &:before {
+    content: $gnu-icon-travelling; 
+  }
+}
+.gnu-icon-twitter {
+  &:before {
+    content: $gnu-icon-twitter; 
+  }
+}
+.gnu-icon-facebook {
+  &:before {
+    content: $gnu-icon-facebook; 
+  }
+}
+.gnu-icon-github {
+  &:before {
+    content: $gnu-icon-github; 
+  }
+}
+.gnu-icon-linkedin {
+  &:before {
+    content: $gnu-icon-linkedin; 
+  }
+}
+.gnu-icon-quote-left {
+  &:before {
+    content: $gnu-icon-quote-left; 
+  }
+}
+.gnu-icon-stack-overflow {
+  &:before {
+    content: $gnu-icon-stack-overflow; 
+  }
+}
+.gnu-icon-codepen {
+  &:before {
+    content: $gnu-icon-codepen; 
+  }
+}
+
+
+$icomoon-font-family: "gnu-icons" !default;
+$icomoon-font-path: "../fonts" !default;
+
+$gnu-icon-football: "\e900";
+$gnu-icon-art: "\e806";
+$gnu-icon-coffee: "\e818";
+$gnu-icon-fitness: "\e844";
+$gnu-icon-movie: "\e862";
+$gnu-icon-pin: "\e877";
+$gnu-icon-badminton: "\e892";
+$gnu-icon-travelling: "\e89c";
+$gnu-icon-twitter: "\f099";
+$gnu-icon-facebook: "\f09a";
+$gnu-icon-github: "\f09b";
+$gnu-icon-linkedin: "\f0e1";
+$gnu-icon-quote-left: "\f10d";
+$gnu-icon-stack-overflow: "\f16c";
+$gnu-icon-codepen: "\eae8";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?jh1wa5') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?jh1wa5') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?jh1wa5##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="gnu-icon-"], [class*=" gnu-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gnu-icon-football {
+  &:before {
+    content: $gnu-icon-football; 
+  }
+}
+.gnu-icon-art {
+  &:before {
+    content: $gnu-icon-art; 
+  }
+}
+.gnu-icon-coffee {
+  &:before {
+    content: $gnu-icon-coffee; 
+  }
+}
+.gnu-icon-fitness {
+  &:before {
+    content: $gnu-icon-fitness; 
+  }
+}
+.gnu-icon-movie {
+  &:before {
+    content: $gnu-icon-movie; 
+  }
+}
+.gnu-icon-pin {
+  &:before {
+    content: $gnu-icon-pin; 
+  }
+}
+.gnu-icon-badminton {
+  &:before {
+    content: $gnu-icon-badminton; 
+  }
+}
+.gnu-icon-travelling {
+  &:before {
+    content: $gnu-icon-travelling; 
+  }
+}
+.gnu-icon-twitter {
+  &:before {
+    content: $gnu-icon-twitter; 
+  }
+}
+.gnu-icon-facebook {
+  &:before {
+    content: $gnu-icon-facebook; 
+  }
+}
+.gnu-icon-github {
+  &:before {
+    content: $gnu-icon-github; 
+  }
+}
+.gnu-icon-linkedin {
+  &:before {
+    content: $gnu-icon-linkedin; 
+  }
+}
+.gnu-icon-quote-left {
+  &:before {
+    content: $gnu-icon-quote-left; 
+  }
+}
+.gnu-icon-stack-overflow {
+  &:before {
+    content: $gnu-icon-stack-overflow; 
+  }
+}
+.gnu-icon-codepen {
+  &:before {
+    content: $gnu-icon-codepen; 
+  }
+}
+

@@ -2,12 +2,12 @@
 $image_path : "../images";
 $font_path  :  "../fonts";
 
-$openSans: 'Open Sans', sans-serif;
-$roboto: 'Roboto', sans-serif;
+$nunito: 'Nunito Sans', sans-serif;
+$playfair: 'Playfair Display', sans-serif;
 
-$font-family: $openSans;
-$font-family-heading: $roboto;
-$font-family-btn: $roboto;
+$font-family: $nunito;
+$font-family-heading: $playfair;
+$font-family-btn: $nunito;
 
 $color-blue : #089DF5;
 $color-green: #2CCB4D;
@@ -17,7 +17,7 @@ $color-red: #D56D5C;
 $color-cyan: #6AB3AF;
 $color-violet: #9836DD;
 $color-black: #000000;
-$color-dark: #212529;
+$color-dark: #1e1f28;
 $color-grey: #b7b7b7;
 $color-white: #fff;
 $color-light: #d7d7d7;

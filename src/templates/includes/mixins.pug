@@ -1,0 +1,36 @@
+mixin item(title, url, isActive)
+  li.nav__item(class= isActive ? 'active' : '')
+    a(href= url class='nav__item_link') #{title}
+
+
+mixin social(url, icon)
+  li
+    a(href= url target='_blank')
+      span(class='gnu-icon gnu-icon-'+icon) 
+
+mixin about(title, content, url)
+  li
+    strong.title= title    
+    if url
+      span.content
+        a(href=url)= content
+    else 
+      span.content= content
+
+mixin skills(title, percentage)
+  .grid-sm-6
+    .skill-progress-bar
+        .bar-data
+            .bar-title= title
+            .bar-value= percentage
+        .bar-line
+            .bar-fill(data-value=percentage)
+
+
+mixin timeline(date, company, position, content) 
+  .timeline-box
+    .timeline-box-inner
+        .date=date
+        h3= company
+        h4= position
+        p= content 

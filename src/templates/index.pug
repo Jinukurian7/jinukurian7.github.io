@@ -1,37 +1,124 @@
+include includes/mixins
+
 doctype html
-html
+html(lang='en')
     head
-        title pug learning 
-        meta(name='Description' content='This is a meta description with lorem ipsum dolor simet')
-        meta(name='keywords' content='')
-        link(rel='canonical' href='')
-        // Social Media Tags
+        - const author = "Jinu Kurian"
+        - const metaTitle = "Jinu Kurian | Senior UI Developer"
+        - const metaDesc = "Creative UI Developer based in Kochi with 7 years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, Barba.js, Page speed optimisations, HTML Emails templates and more."
+        
+        title #{metaTitle}
+        meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
+        meta(name="Description" content= metaDesc)
+        meta(name="keywords" content='')
+        link(rel="canonical" href='')
+
+        //- Social Media Tags
         meta(property='og:locale' content='en_US')
         meta(property='og:type' content='website')
-        meta(property='og:title' content='HTML Boilerplate | White Rabbit Group')
-        meta(name='author' content='White Rabbit Group')
+        meta(property='og:title' content= metaTitle)
+        meta(name='author' content='Jinu Kuria ')
         meta(property='og:url' content='index.html')
         meta(property='og:image' name='image' content='images/meta.jpg')
         meta(property='og:image:secure_url' content='images/meta.jpg')
         meta(property='og:image:type' content='image/jpeg')
         meta(property='og:image:width' content='300')
         meta(property='og:image:height' content='300')
-        meta(property='og:site_name' content='HTML Boilerplate')
-        meta(property='og:description' content='This is a meta description with lorem ipsum dolor simet')
+        meta(property='og:site_name' content='Jinu Kurian')
+        meta(property='og:description' content= metaDesc)
         meta(name='twitter:card' content='summary')
+
+        //- favicon
+        link(rel='apple-touch-icon' sizes='180x180' href='images/icons/apple-touch-icon.png')
+        link(rel='icon' type='image/png' sizes='32x32' href='images/icons/favicon-32x32.png')
+        link(rel='icon' type='image/png' sizes='16x16' href='images/icons/favicon-16x16.png')
+        link(rel='manifest' href='images/icons/site.webmanifest')
+        link(rel='mask-icon' href='images/icons/safari-pinned-tab.svg' color='#5bbad5')
+        meta(name='msapplication-TileColor' content='#00aba9')
+        meta(name='theme-color' content='#ffffff')
+
+        //- Main style
         link(rel="stylesheet" href="css/style.min.css")
     body
         include includes/header
         #main-wrapper
             section.hero-section
-                figure.hero
-                img.hero__img(src='images/banner.png' alt='Homepage Hero')
+                figure.hero(style="background-image: url(images/banner.jpg)")
             
-            section.text-section
-                .container
-                    h2.text-center This is a text section
-                    .row
-                        .grid-md-6
-                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repudiandae magnam sed nesciunt suscipit labore sequi sapiente consectetur aliquid. Ex minus accusamus officia veniam modi neque reiciendis doloribus dolorum voluptatem.
-                        .grid-md-6
-                            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repudiandae magnam sed nesciunt suscipit labore sequi sapiente consectetur aliquid. Ex minus accusamus officia veniam modi neque reiciendis doloribus dolorum voluptatem.
+            #main-content
+                section#about.section.section-about
+                    .container
+                        .section-box
+                            .profile
+                                .row
+                                    .grid-xs-4
+                                        .profile-photo
+                                            img(src='images/jinukurian.jpg' alt='Jinu Kurian')
+                                    .grid-xs-8
+                                        .profile-info
+                                            .profile-preword
+                                                span Hello
+                                            h1.profile-title
+                                                span I'm
+                                                em Jinu Kurian
+                                            h2.profile-position Senior UI Developer
+                                        ul.profile-list
+                                            +about('age', '28')
+                                            +about('Address', 'Panakkattu(H), Kandanad, Ernakulam, Kerala')
+                                            +about('E-mail', 'jinukurian7@gmail.com', 'mailto:jinukurian7@gmail.com')
+                                            +about('Phone', '+91 8891280830', 'tel:+918891280830')
+                                            +about('Experiece', '7 year')
+                            
+                            .profile-social
+                                ul.social
+                                    +social('https://twitter.com/Jinukurian7', 'twitter')
+                                    +social('https://www.linkedin.com/in/jinukurian7/', 'linkedin')
+                                    +social('https://github.com/Jinukurian7', 'github')
+                                    +social('http://stackoverflow.com/users/4947434/jinu-kurian', 'stack-overflow')
+                                    +social('https://codepen.io/jinukurian7', 'codepen')
+                        .section-txt-btn
+                            p
+                                a(class="btn btn-primary" target="_blank" href="files/Jinu-CV.pdf" alt="Download Resume") Download Resume
+
+                section.section.about-me
+                    .container
+                        h2.section-title About Me
+                        blockquote
+                            p Hello! I’m Jinu Kurian. UI Developer with 3 year experience in structuring, developing and implementing interactive websites.Able to complete projects efficiently and satisfy clients with attractive, user friendly websites. I'm hard working, self-motivated and a dedicated guy, love to expolre, big hunger for new knowledge. I love to inspire other people around me get insired by them. Optimist for life
+                		
+                section#skills.section.section-skills
+                    .container
+                        h2.section-title Professional Skills
+                        .section-box.skill-box
+                            .row
+                                +skills('HTML', '90%')
+                                +skills('Javascript', '60%')
+                                +skills('SCSS', '90%')
+                                +skills('Pug', '75%')
+                                +skills('Photoshop', '90%')
+                                +skills('Illustrator', '70%')
+                                +skills('Sketch', '80%')
+                                +skills('Figma', '90%')
+
+                section#experience.section.section-experience
+                    .container
+                        h2.section-title Work Experience
+                        .timeline
+                            .timeline-inner
+                                +timeline("2017 October - Current", "White Rabbit Group", "Senior UI Developer", "Working as part of a multi-disciplinary team, carrying out tasks including conversion of PSD/AI/InDesign to html, Newsletter etc. Had a specific brief to ensure the websites build for customer&rsquo;s precisely matched their design.")
+                                +timeline("2015 May - 2017 October", "Phases India Technology Pvt. Ltd", "Associate UI developer", "Working as part of a multi-disciplinary team, carrying out tasks including conversion of PSD/AI/InDesign to html, Newsletter etc. Had a specific brief to ensure the websites build for customer&rsquo;s precisely matched their design.")
+                                +timeline("2014 June - 2015 May", "QPlay Tech Pvt. Ltd", "UI/UX Developer and designer", "Working as part of a multi-disciplinary team, carrying out tasks including conversion of PSD/AI/InDesign to html, Newsletter etc. Had a specific brief to ensure the websites build for customer&rsquo;s precisely matched their design.")
+                                +timeline("2014 May - 2014 June", "PixelDreams, Kochin", "UI Developer/SEO (trainee)", "Working as part of a multi-disciplinary team, carrying out tasks including conversion of PSD/AI/InDesign to html, Newsletter etc. Had a specific brief to ensure the websites build for customer&rsquo;s precisely matched their design.")
+
+                section#education.section.section-education
+                    .container
+                        h2.section-title Education
+                        .timeline
+                            .timeline-inner
+                                +timeline("2010 - 2014", "B.Tech - Information Technology", "TocH Institute of Science & Technology (CUSAT)")
+                                +timeline("2008 - 2010", "Higher Secondary", "St: Ignatius H.S.S, Kanjiramattom")
+                                +timeline("2003 - 2008", "High School", "St: Mary's H.S, Kandanad")
+
+        include includes/footer

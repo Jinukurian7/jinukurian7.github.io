@@ -1,43 +1,49 @@
 (function ($) {
     'use strict';
-    var THEME = {
-        init: function () {
+    const JK = {
+        init: function() {
             this.onLoad();
             this.winLoad();
             this.resizeListner();
             this.scrollListner();
+            this.preloader();
+            this.loadAnim();
+            this.skillProgress();
         },
         settings: {
             windowWidth: $(window).width(),
             windowheight: $(window).height(),
-            scrollClassTrigger: 500
+            scrollClassTrigger: $(".hero-section").height() - 250
         },
-        onLoad: function () {
-            $(document).ready(function () {});
-        },
-
-        winLoad: function () {
-            $(window).on('load', function () {
-                $('body').addClass('all-loaded');
+        onLoad: () => {
+            $(document).ready(() => {
+                
             });
         },
 
-        resizeListner: function () {
-            $(window).on('load resize', function () {
-                THEME.settings.windowWidth = $(window).width();
+        winLoad: () => {
+            $(window).on('load', () => {
+                // $('body').addClass('page-loaded');
             });
         },
+
+        resizeListner: () => {
+            $(window).on("load resize", () => {
+                JK.settings.windowWidth = $(window).width();
+            });
+        },
+       
         // ScrollListner
-        scrollListner: function () {
+        scrollListner: () => {
             $(window).on('load scroll', function () {
-                if ($(window).scrollTop() > THEME.settings.scrollClassTrigger) {
-                    $('body').addClass('scrolled');
+                if ($(window).scrollTop() > JK.settings.scrollClassTrigger) {
+                    $('header').addClass('fixed');
                 } else {
-                    $('body').removeClass('scrolled');
+                    $('header').removeClass('fixed');
                 }
             });
 
-            $(window).on('mousewheel DOMMouseScroll', function (event) {
+            $(window).on('mousewheel DOMMouseScroll', (event) => {
                 var wd = event.originalEvent.wheelDelta || -event.originalEvent.detail;
                 if (wd < 0) {
                     $('body').removeClass('scrollingUp');
@@ -47,7 +53,86 @@
                     $('body').addClass('scrollingUp')
                 }
             });
+        },
+        // Preloader
+        preloader: function() {
+            let preloader = $(".preloader");
+            let cover = $(".preloader-cover");
+            let preloaderContent = $(".preloader-content > *");
+            let progressBar = $(".progressbar");
+            let count = $(".progressbar-text");
+            let tl = gsap.timeline();
+            tl.from(preloaderContent, 0.5,{
+                y: -10,
+                autoAlpha: 0, 
+                stagger: 0.5
+            })
+            .from(progressBar, 2, {
+                delay: 0.5,
+                strokeDashoffset: 100,
+                ease:Linear.easeNone,
+                onUpdate: function() {
+                    let percentage = Math.round(this.progress() * 100)
+                    count.text(percentage + "%")
+                }
+            })
+            .to(preloaderContent, 0.2,{
+                y: -10,
+                autoAlpha: 0, 
+            }, "+=0.5")
+            .to(cover, 1, {
+                delay: 0.25,
+                x: "-100%",
+                ease: Power4.easeOut
+            })
+            .to(preloader, 1, {
+                x: "-100%",
+                ease: Power4.easeOut
+            }, "-=0.25")
+            .to(preloader, 0.5, {
+                autoAlpha: 0
+            })
+            .add(function() {
+                $("body").addClass("page-loaded");
+            }, "-=1");
+        },
+
+        loadAnim: () => {
+
+            gsap.from(".profile-list li", {
+                autoAlpha: 0,
+                y: 10,
+                ease: Power4.easeOut,
+                delay: 0.5,
+                stagger: 0.25,
+                scrollTrigger: {
+                    trigger: ".profile-list"
+                }
+           })
+           gsap.from(".social li", {
+                autoAlpha: 0,
+                y: 10,
+                ease: Power4.easeOut,
+                delay: 0.5,
+                stagger: 0.25,
+                scrollTrigger: {
+                    trigger: ".social"
+                }
+           })
+        },
+
+        skillProgress: () => {
+            gsap.to(".bar-fill", { 
+                width: function(index, target) {
+                    return target.dataset.value
+                }, 
+                stagger: 0.25,
+                ease: Power4.easeOut,
+                scrollTrigger: {
+                    trigger: ".skill-box"
+                }
+            });
         }
     };
-    THEME.init();
+    JK.init();
 }(jQuery));

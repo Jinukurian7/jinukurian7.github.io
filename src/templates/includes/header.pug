@@ -1,14 +1,17 @@
+include mixins 
+
 header.page-head.page-head--masthead
   .page-head-wrapper
     .container-fluid
       nav.navbar
         a.navbar-brand(href='/')
-          img(src='images/logo.png' alt='Logo')
-        - const navClasses = ["nav-link", "nav__item_link"]
+          img(src='images/logo.svg' alt=author)
         ul.navbar-nav
-          li.nav__item
-            a(class=navClasses href='/') home
-          li.nav__item
-            a(class=navClasses href='/') About
-          li.nav__item
-            a(class=navClasses href='/') Contact
+          +item('Home', '#home', true)
+          +item('About', '#about', false)
+          +item('Skills', '#skills', false)
+          +item('Experience', '#experience', false)
+          +item('Contact', '#contact', false)
+  
+         
+  

@@ -21,6 +21,3 @@ To start, (assuming you have github page)
 Happy coding!
 
 Feel free to contact me if you have any doubt
-
-
-*PS: Since I was really busy with my work and personal stuffs, I haven't got much time to do the responsive part and footer sections. Will complete those ASAP.* 

@@ -6,8 +6,9 @@
             this.winLoad();
             this.resizeListner();
             this.scrollListner();
-            this.preloader();
-            this.loadAnim();
+            this.navToggle();
+            // this.preloader();
+            // this.loadAnim();
             this.skillProgress();
             this.timeline();
         },
@@ -55,6 +56,13 @@
                 }
             });
         },
+
+        navToggle: () => {
+            $(".navbar-toggler").click(function() {
+                $("body, .navbar").toggleClass('menu-open');
+            })
+        },
+
         // Preloader
         preloader: function() {
             let preloader = $(".preloader");

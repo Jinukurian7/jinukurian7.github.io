@@ -1,7 +1,8 @@
 // https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/
 @mixin bp($range) {
-    $mobile: 600px;
-    $tablet: 900px;
+    $mobile: 576px;
+    $ipad: 768px;
+    $tablet: 992px;
     $laptop: 1200px;
     $desktop: 1800px;
   
@@ -15,13 +16,23 @@
           @content; 
         }
     }
+    @else if $range == ipad-up {
+        @media (min-width: $ipad) { 
+          @content; 
+        }
+    } 
+    @else if $range == ipad-only {
+        @media (max-width: #{$ipad - 1}) { 
+          @content; 
+        }
+    } 
     @else if $range == tablet-up {
         @media (min-width: $tablet) { 
           @content; 
         }
     } 
     @else if $range == tablet-only {
-        @media (min-width: #{$tablet - 1}) { 
+        @media (max-width: #{$tablet - 1}) { 
           @content; 
         }
     } 
@@ -31,7 +42,7 @@
         }
     } 
     @else if $range == laptop-only {
-        @media (min-width: #{$laptop - 1}) { 
+        @media (max-width: #{$laptop - 1}) { 
           @content; 
         }
     } 
@@ -41,7 +52,7 @@
         }
     }
     @else if $range == desktop-up {
-        @media (min-width: #{$desktop - 1}) { 
+        @media (max-width: #{$desktop - 1}) { 
           @content; 
         }
     }

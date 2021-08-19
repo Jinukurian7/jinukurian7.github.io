@@ -9,24 +9,30 @@
         align-items: flex-start;
         justify-content: space-between;
     }
-    a.navbar-brand {
-        padding-left: 35px;
-        @include bp(tablet-up) {
-            padding-left: 80px;
+}
+
+a.navbar-brand {
+    padding-left: 5px;
+    .menu-open & {
+        @include bp(ipad-only) {
+            z-index: 1;
         }
-        @include bp(laptop-up) {
-            padding-left: 0;
-            img {
-                animation: menuAnim map-get($easings, ease-in) 0.5s forwards;
-            }
+    }
+    @include bp(laptop-up) {
+        padding-left: 0;
+        img {
+            animation: menuAnim map-get($easings, ease-in) 0.5s forwards;
         }
     }
     img {
         width: 100%;
-        max-width: 75px;
+        max-width: 60px;
         height: auto;
         mix-blend-mode: difference;
         z-index: 99;
+        @include bp(mobile-up) {
+            max-width: 75px;
+        }
     }
 }
 
@@ -51,14 +57,35 @@
 }
 
 .navbar-nav {
-    position: relative;
-    display: flex;
-    padding: 0;
-    width: auto;
-    height: auto;
-    background: transparent;
-    list-style: none;
-    padding-top: 15px;
+    position: fixed;
+    width: 100%;
+    flex-direction: column;
+    background: #20202a;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding-top: 150px;
+    padding-left: 10px;
+    transform: translateX(-100%);
+    transition: transform map-get($easings, ease-in-out) 0.25s;
+    .menu-open & {
+        transform: translateX(0);
+    }
+    @include bp(ipad-up) {
+        position: relative;
+        display: flex;
+        padding: 0;
+        width: auto;
+        height: auto;
+        background: transparent;
+        list-style: none;
+        padding-top: 15px;
+        padding-left: 40px;
+        height: auto;
+        background: transparent;
+        flex-direction: row;
+        transform: none;
+    }
     a {
         color: #fff;
         font-weight: bold;
@@ -75,6 +102,58 @@
         .fixed & {
             color: $color-dark;
         }
+        .menu-open & {
+            @include bp(ipad-only) {
+                color: #fff;
+            }
+        }
     }
 }
 
+.navbar-toggler {
+    position: fixed;
+    top: 30px;
+    right: 20px;
+    background: no-repeat;
+    border: 0;
+    height: 30px;
+    appearance: none;
+    z-index: 1;
+    cursor: pointer;
+    span {
+        width: 36px;
+        height: 2px;
+        background: #fff;
+        display: block;
+        position: relative;
+        .fixed & {
+            background: #000;
+        }
+        .menu-open & {
+            background: #fff;
+        }
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            width: 36px;
+            height: 2px;
+            left: 0;
+            background: #fff;
+            .fixed & {
+                background: #000;
+            }
+            .menu-open & {
+                background: #fff;
+            }
+        }
+        &:before {
+            top: -8px;
+        }
+        &:after {
+            top: 8px;
+        }
+    }
+    @include bp(ipad-up) {
+        display: none;
+    }
+}

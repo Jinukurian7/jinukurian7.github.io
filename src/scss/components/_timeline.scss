@@ -1,15 +1,17 @@
 .timeline {
     position: relative;
-    &:before {
-        content: '';
-        width: 4px;
-        opacity: 0.2;
-        margin-left: -2px;
-        position: absolute;
-        left: 50%;
-        top: 0;
-        height: 100%;
-        background-color: $color-dark;
+    @include bp(ipad-up) {
+        &:before {
+            content: '';
+            width: 4px;
+            opacity: 0.2;
+            margin-left: -2px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            background-color: $color-dark;
+        }
     }
     &-inner {
         position: relative;
@@ -17,12 +19,15 @@
         flex-wrap: wrap;
     }
     &-box {
-        width: 50%;
+        width: 100%;
         color: #757575;
         @include font-size(16px);
         line-height: 1.5;
         margin-bottom: 25px;
         position: relative; 
+        @include bp(ipad-up) {
+            width: 50%;
+        }
         &-inner {
             padding: 30px 5% 20px 5%;
             position: relative;
@@ -30,19 +35,21 @@
             border-style: solid;
             background-color: #fff;
             box-shadow: 0 1px 6px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 24%);
-            &:after {
-                content: '';
-                position: absolute;
-                width: 10px;
-                height: 10px;
-                background: #646464;
-                border-radius: 50%;
-                top: 50%;
-                transform: translateY(-50%);
-                right: -55px;
+            @include bp(ipad-up) {
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background: #646464;
+                    border-radius: 50%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: -55px;
+                }
             }
         }
-        @include bp(laptop-up) {
+        @include bp(ipad-up) {
             &:nth-child(odd) {
                 padding-right: 50px;
                 margin-top: 25px;

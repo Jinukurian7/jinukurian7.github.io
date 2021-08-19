@@ -7,8 +7,8 @@
             this.resizeListner();
             this.scrollListner();
             this.navToggle();
-            // this.preloader();
-            // this.loadAnim();
+            this.preloader();
+            this.loadAnim();
             this.skillProgress();
             this.timeline();
         },

@@ -771,7 +771,6 @@ h6 {
       align-items: center;
   -ms-flex-pack: center;
       justify-content: center;
-  display: none;
 }
 .preloader-cover {
   position: fixed;

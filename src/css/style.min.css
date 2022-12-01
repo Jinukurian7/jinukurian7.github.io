@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .container {
   width: 100%;
   padding-right: 15px;
@@ -887,63 +886,63 @@ h6 {
 }
 
 .gnu-icon-football:before {
-  content: "";
+  content: "\e900";
 }
 
 .gnu-icon-art:before {
-  content: "";
+  content: "\e806";
 }
 
 .gnu-icon-coffee:before {
-  content: "";
+  content: "\e818";
 }
 
 .gnu-icon-fitness:before {
-  content: "";
+  content: "\e844";
 }
 
 .gnu-icon-movie:before {
-  content: "";
+  content: "\e862";
 }
 
 .gnu-icon-pin:before {
-  content: "";
+  content: "\e877";
 }
 
 .gnu-icon-badminton:before {
-  content: "";
+  content: "\e892";
 }
 
 .gnu-icon-travelling:before {
-  content: "";
+  content: "\e89c";
 }
 
 .gnu-icon-twitter:before {
-  content: "";
+  content: "\f099";
 }
 
 .gnu-icon-facebook:before {
-  content: "";
+  content: "\f09a";
 }
 
 .gnu-icon-github:before {
-  content: "";
+  content: "\f09b";
 }
 
 .gnu-icon-linkedin:before {
-  content: "";
+  content: "\f0e1";
 }
 
 .gnu-icon-quote-left:before {
-  content: "";
+  content: "\f10d";
 }
 
 .gnu-icon-stack-overflow:before {
-  content: "";
+  content: "\f16c";
 }
 
 .gnu-icon-codepen:before {
-  content: "";
+  content: "\eae8";
 }
 
 @font-face {
@@ -968,63 +967,63 @@ h6 {
 }
 
 .gnu-icon-football:before {
-  content: "";
+  content: "\e900";
 }
 
 .gnu-icon-art:before {
-  content: "";
+  content: "\e806";
 }
 
 .gnu-icon-coffee:before {
-  content: "";
+  content: "\e818";
 }
 
 .gnu-icon-fitness:before {
-  content: "";
+  content: "\e844";
 }
 
 .gnu-icon-movie:before {
-  content: "";
+  content: "\e862";
 }
 
 .gnu-icon-pin:before {
-  content: "";
+  content: "\e877";
 }
 
 .gnu-icon-badminton:before {
-  content: "";
+  content: "\e892";
 }
 
 .gnu-icon-travelling:before {
-  content: "";
+  content: "\e89c";
 }
 
 .gnu-icon-twitter:before {
-  content: "";
+  content: "\f099";
 }
 
 .gnu-icon-facebook:before {
-  content: "";
+  content: "\f09a";
 }
 
 .gnu-icon-github:before {
-  content: "";
+  content: "\f09b";
 }
 
 .gnu-icon-linkedin:before {
-  content: "";
+  content: "\f0e1";
 }
 
 .gnu-icon-quote-left:before {
-  content: "";
+  content: "\f10d";
 }
 
 .gnu-icon-stack-overflow:before {
-  content: "";
+  content: "\f16c";
 }
 
 .gnu-icon-codepen:before {
-  content: "";
+  content: "\eae8";
 }
 
 .page-head {
@@ -1219,6 +1218,18 @@ footer {
 }
 footer p {
   margin-bottom: 0;
+}
+footer .copyright {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+}
+footer .copyright p {
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 * {

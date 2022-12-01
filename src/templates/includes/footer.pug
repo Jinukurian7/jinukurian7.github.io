@@ -12,6 +12,11 @@
 footer.page-footer
   .page-footer-wrapper
     .container-fluid.text-center
-      p ©2021 Jinu Kurian
+      div.copyright &copy;
+        p#copyright
+          script.
+            document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+        |     Jinu Kurian
+
 script(src="js/vendors.min.js")
 script(src="js/main.min.js")

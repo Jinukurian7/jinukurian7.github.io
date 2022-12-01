@@ -17,7 +17,11 @@
 <footer class="page-footer">
   <div class="page-footer-wrapper">
     <div class="container-fluid text-center">
-      <p>©2021 Jinu Kurian</p>
+      <div class="copyright">&copy;
+        <p id="copyright">
+          <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+        </p>    Jinu Kurian
+      </div>
     </div>
   </div>
 </footer>

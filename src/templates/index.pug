@@ -3,23 +3,26 @@ include includes/mixins
 doctype html
 html(lang='en')
     head
+        - const currDate = new Date().toISOString().slice(0,10).replace(/-/g,"")
+        - const dob = 19921106
+        - const exp = 20140700
         - const author = "Jinu Kurian"
         - const metaTitle = "Jinu Kurian | Senior UI Developer"
-        - const metaDesc = "Creative UI Developer based in Kochi with 7 years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, Barba.js, Page speed optimisations, HTML Emails templates and more."
-        
+        - const metaDesc = `Creative UI Developer based in Kochi with ${Math.round((currDate - dob) * 0.0001)} years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, WordPress, Barba.js, Page speed optimisations, HTML Emails templates and more.`
+
         title #{metaTitle}
         meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
         meta(http-equiv='X-UA-Compatible', content='IE=edge')
         meta(name="viewport",content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0")
         meta(name="Description" content= metaDesc)
         meta(name="keywords" content='')
-        link(rel="canonical" href='')
+        link(rel="canonical" href='https://jinukurian7.github.io/')
 
         //- Social Media Tags
         meta(property='og:locale' content='en_US')
         meta(property='og:type' content='website')
         meta(property='og:title' content= metaTitle)
-        meta(name='author' content='Jinu Kuria ')
+        meta(name='author' content='Jinu Kurian')
         meta(property='og:url' content='index.html')
         meta(property='og:image' name='image' content='images/meta.jpg')
         meta(property='og:image:secure_url' content='images/meta.jpg')
@@ -65,11 +68,11 @@ html(lang='en')
                                                 em Jinu Kurian
                                             h2.profile-position Senior UI Developer
                                         ul.profile-list
-                                            +about('age', '28')
+                                            +about('age', `${Math.round((currDate - dob) * 0.0001)}`)
                                             +about('Address', 'Panakkattu(H), Kandanad, Ernakulam, Kerala')
                                             +about('E-mail', 'jinukurian7@gmail.com', 'mailto:jinukurian7@gmail.com')
                                             +about('Phone', '+91 8891280830', 'tel:+918891280830')
-                                            +about('Experiece', '7 year')
+                                            +about('Experiece', `${Math.round((currDate - exp) * 0.0001)}+ years`)
                             
                             .profile-social
                                 ul.social
@@ -96,6 +99,8 @@ html(lang='en')
                                 +skills('HTML', '90%')
                                 +skills('Javascript', '60%')
                                 +skills('SCSS', '90%')
+                                +skills('WordPress', '80%')
+                                +skills('Webflow', '70%')
                                 +skills('Pug', '75%')
                                 +skills('Photoshop', '90%')
                                 +skills('Illustrator', '70%')
@@ -107,10 +112,10 @@ html(lang='en')
                         h2.section-title Work Experience
                         .timeline
                             .timeline-inner
-                                +timeline("2017 October - Current", "White Rabbit Group", "Senior UI Developer", "Creating web application front end as per design comps and information architecture by following best practices and standards for accessibility and cross browser compatibility.")
+                                +timeline("2021 November - Present", "KeyValue Software Systems Pvt Ltd", "Senior UI Engineer", "Responsible for applying interactive and visual design principles on websites and web applications for a positive and cohesive user experience.")
+                                +timeline("2017 October - 2021 November", "White Rabbit Group", "Senior UI Developer", "Creating web application front end as per design comps and information architecture by following best practices and standards for accessibility and cross browser compatibility.")
                                 +timeline("2015 May - 2017 October", "Phases India Technology Pvt. Ltd", "Associate UI developer", "Combine the art of design with the art of programming. Responsibilities will include translation of the UI/UX design wireframes to actual code that will produce visual elements of the application.")
                                 +timeline("2014 June - 2015 May", "QPlayTech Pvt. Ltd", "UI/UX Designer and Developer", "Developing well-thought-out user experience flows and designing and developing interfaces for websites that provide the best possible user experience.")
-                                //- +timeline("2014 May - 2014 June", "PixelDreams, Kochin", "UI Developer/SEO (trainee)", "Working as part of a multi-disciplinary team, carrying out tasks including conversion of PSD/AI/InDesign to html, Newsletter etc. Had a specific brief to ensure the websites build for customer&rsquo;s precisely matched their design.")
 
                 section#education.section.section-education
                     .container

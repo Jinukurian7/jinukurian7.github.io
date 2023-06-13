@@ -7,7 +7,7 @@ html(lang='en')
         - const dob = 19921106
         - const exp = 20140700
         - const author = "Jinu Kurian"
-        - const metaTitle = "Jinu Kurian | Senior UI Developer"
+        - const metaTitle = "Jinu Kurian | Senior UI Engineer"
         - const metaDesc = `Creative UI Developer based in Kochi with ${Math.round((currDate - dob) * 0.0001)} years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, WordPress, Barba.js, Page speed optimisations, HTML Emails templates and more.`
 
         title #{metaTitle}
@@ -43,7 +43,7 @@ html(lang='en')
         meta(name='theme-color' content='#ffffff')
 
         //- Main style
-        link(rel="stylesheet" href="css/style.min.css")
+        link(rel="stylesheet" href="css/styles.css")
     body
         include includes/header
         #main-wrapper
@@ -66,7 +66,7 @@ html(lang='en')
                                             h1.profile-title
                                                 span I'm
                                                 em Jinu Kurian
-                                            h2.profile-position Senior UI Developer
+                                            h2.profile-position Senior UI Engineer
                                         ul.profile-list
                                             +about('age', `${Math.round((currDate - dob) * 0.0001)}`)
                                             +about('Address', 'Panakkattu(H), Kandanad, Ernakulam, Kerala')

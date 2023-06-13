@@ -1,0 +1,161 @@
+.page-head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+a.navbar-brand {
+  padding-left: 5px;
+  .menu-open & {
+    @include bp(ipad-only) {
+      z-index: 1;
+    }
+  }
+  @include bp(laptop-up) {
+    padding-left: 0;
+    img {
+      animation: menuAnim map-get($easings, ease-in) 0.5s forwards;
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 60px;
+    height: auto;
+    mix-blend-mode: difference;
+    z-index: 99;
+    @include bp(mobile-up) {
+      max-width: 75px;
+    }
+  }
+}
+
+.page-head-wrapper {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transition: transform map-get($easings, ease-in-out) 0.25s;
+    transform: translateY(-100%);
+    box-shadow: 0 1px 6px rgb(0 0 0 / 12%), 0 1px 4px rgb(0 0 0 / 20%);
+    .fixed & {
+      transform: translateY(0);
+    }
+  }
+}
+
+.navbar-nav {
+  position: fixed;
+  width: 100%;
+  flex-direction: column;
+  background: #20202a;
+  left: 0;
+  top: 0;
+  height: 100%;
+  padding-top: 150px;
+  padding-left: 10px;
+  transform: translateX(-100%);
+  transition: transform map-get($easings, ease-in-out) 0.25s;
+  .menu-open & {
+    transform: translateX(0);
+  }
+  @include bp(ipad-up) {
+    position: relative;
+    display: flex;
+    padding: 0;
+    width: auto;
+    height: auto;
+    background: transparent;
+    list-style: none;
+    padding-top: 15px;
+    padding-left: 40px;
+    height: auto;
+    background: transparent;
+    flex-direction: row;
+    transform: none;
+  }
+  a {
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    @include font-size(16px);
+    display: block;
+    transition: color map-get($easings, ease-in-out) 0.25s;
+    &:hover,
+    &:focus {
+      color: $color-red;
+    }
+    .fixed & {
+      color: $color-dark;
+    }
+    .menu-open & {
+      @include bp(ipad-only) {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  position: fixed;
+  top: 30px;
+  right: 20px;
+  background: no-repeat;
+  border: 0;
+  height: 30px;
+  appearance: none;
+  z-index: 1;
+  cursor: pointer;
+  span {
+    width: 36px;
+    height: 2px;
+    background: #fff;
+    display: block;
+    position: relative;
+    .fixed & {
+      background: #000;
+    }
+    .menu-open & {
+      background: #fff;
+    }
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      width: 36px;
+      height: 2px;
+      left: 0;
+      background: #fff;
+      .fixed & {
+        background: #000;
+      }
+      .menu-open & {
+        background: #fff;
+      }
+    }
+    &:before {
+      top: -8px;
+    }
+    &:after {
+      top: 8px;
+    }
+  }
+  @include bp(ipad-up) {
+    display: none;
+  }
+}

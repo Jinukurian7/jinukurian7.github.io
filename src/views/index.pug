@@ -8,7 +8,7 @@ html(lang='en')
         - const exp = 20140700
         - const author = "Jinu Kurian"
         - const metaTitle = "Jinu Kurian | Senior UI Engineer"
-        - const metaDesc = `Creative UI Developer based in Kochi with ${Math.round((currDate - dob) * 0.0001)} years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, WordPress, Barba.js, Page speed optimisations, HTML Emails templates and more.`
+        - const metaDesc = `Creative UI Developer based in Kochi with ${Math.round((currDate - exp) * 0.0001)}+ years of solid experience in UI development. Skilled in HTML5,CSS3, SASS, jQuery, GSAP animations, WordPress, Barba.js, Page speed optimisations, HTML Emails templates and more.`
 
         title #{metaTitle}
         meta(http-equiv="Content-Type" content="text/html; charset=UTF-8")
@@ -89,7 +89,7 @@ html(lang='en')
                     .container
                         h2.section-title About Me
                         blockquote
-                            p Hello! I’m Jinu Kurian. UI Developer with 3 year experience in structuring, developing and implementing interactive websites.Able to complete projects efficiently and satisfy clients with attractive, user friendly websites. I'm hard working, self-motivated and a dedicated guy, love to expolre, big hunger for new knowledge. I love to inspire other people around me get insired by them. Optimist for life
+                            p Hello! I’m Jinu Kurian. UI Developer with #{Math.round((currDate - exp) * 0.0001)}+ years experience in creating user-friendly interfaces that are both beautiful and functional. I have worked on a wide range of projects, from small websites to large enterprise applications. I am a highly motivated and results-oriented individual. I am always looking for new challenges and opportunities to learn and grow. I am also a team player and I am always willing to help others.
                 		
                 section#skills.section.section-skills
                     .container
@@ -100,11 +100,11 @@ html(lang='en')
                                 +skills('Javascript', '60%')
                                 +skills('SCSS', '90%')
                                 +skills('WordPress', '80%')
-                                +skills('Webflow', '70%')
-                                +skills('Pug', '75%')
+                                +skills('Webflow', '90%')
+                                +skills('Pug', '80%')
                                 +skills('Photoshop', '90%')
                                 +skills('Illustrator', '70%')
-                                +skills('Sketch', '80%')
+                                +skills('Sketch', '90%')
                                 +skills('Figma', '90%')
 
                 section#experience.section.section-experience
@@ -131,11 +131,10 @@ html(lang='en')
                         h2.section-title My Interests
                         .section-box
                             p
-                                | I have a keen interest in football. I play attacking mid or winger.
-                                | Like to surf in internet and learn/discover new stuffs thats happening around.
-                                | Like to solve puzzles,crosswords,sudoku etc.
-                                | love to play chess and was a champion in a competition held by our local club :p.
-                                | I also like volunteering social activities.
+                                | I am a curious and creative individual with a wide range of interests. I am passionate about learning new things and exploring new experiences. 
+                                | I enjoy playing sports such as football, cricket, table tennis, badminton, and chess.
+                                | I also enjoy movies, series, music, fitness and travel
+                                | In addition, I am involved in social activities and volunteer my time to help others.
                             ul.interests-list
                                 li
                                     i.gnu-icon.gnu-icon-art
